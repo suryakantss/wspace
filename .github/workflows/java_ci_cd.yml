@@ -25,4 +25,4 @@ jobs:
       with:
         name: demoforgit-jar
         #path: ./demoforgit/staging/*.jar
-        run: ls -l
+    - run: ls -l
