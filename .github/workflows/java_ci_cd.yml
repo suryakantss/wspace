@@ -5,13 +5,17 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4    
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v5
+      with:
+        maven-version: 3.8.2
     - uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
     - run: ./demoforgit/mvn --batch-mode --update-snapshots verify
-    - run: ./demoforgit/mvn/mkdir staging && cp ./demoforgit/target/*.jar ./demoforgit/staging
+    - run: ./demoforgit/mkdir staging && cp ./demoforgit/target/*.jar ./demoforgit/staging
     - uses: actions/upload-artifact@v4
       with:
         name: Package
