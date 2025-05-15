@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4    
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v5
+      with:
+        maven-version: 3.8.2
     - uses: actions/setup-java@v4
       with:
         java-version: '17'
@@ -15,5 +19,10 @@ jobs:
     - run: mkdir ./demoforgit/staging && cp ./demoforgit/target/*.jar ./demoforgit/staging
     - uses: actions/upload-artifact@v4
       with:
-        name: Package
+        name: demoforgit-jar
         path: ./demoforgit/staging/*.jar
+    - uses: actions/download-artifact@v4
+      with:
+        name: demoforgit-deploy
+        #path: ./demoforgit/staging/*.jar
+        run: ls -l
