@@ -23,6 +23,6 @@ jobs:
         path: ./demoforgit/staging/*.jar
     - uses: actions/download-artifact@v4
       with:
-        name: demoforgit-deploy
+        name: demoforgit-jar
         #path: ./demoforgit/staging/*.jar
         run: ls -l
