@@ -14,6 +14,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    - run: ls -l
     - run: ./demoforgit/mvn --batch-mode --update-snapshots verify
     - run: ./demoforgit/mkdir staging && cp ./demoforgit/target/*.jar ./demoforgit/staging
     - uses: actions/upload-artifact@v4
