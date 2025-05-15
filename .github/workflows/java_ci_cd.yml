@@ -10,8 +10,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - run: mvn --batch-mode --update-snapshots verify
-    - run: mkdir staging && cp target/*.jar staging
+    - run: ./demoforgit/mvn --batch-mode --update-snapshots verify
+    - run: ./demoforgit/mvn/mkdir staging && cp ./demoforgit/target/*.jar ./demoforgit/staging
     - uses: actions/upload-artifact@v4
       with:
         name: Package
